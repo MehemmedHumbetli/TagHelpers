@@ -1,6 +1,15 @@
-﻿namespace TagHelpers.Context
+﻿using Microsoft.EntityFrameworkCore;
+using TagHelpers.Entities;
+
+namespace TagHelpers.Context
 {
-    public class SchoolDbContext
+    public class SchoolDbContext : DbContext
     {
+        public SchoolDbContext(DbContextOptions<SchoolDbContext> options) : base(options) 
+        {
+
+        }
+
+        public DbSet<Student> Students { get; set; }
     }
 }
